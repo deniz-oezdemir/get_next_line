@@ -6,12 +6,43 @@
 /*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2023/11/29 12:52:52 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:30:16 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+static void	del_line(char **storage)
+{
+	char	*new_line_char;
+	char	*tmp;
+	size_t	i;
+	size_t	j;
+
+	new_line_char = ft_strchr(*storage, '\n');
+	if (!new_line_char)
+	{
+		free(*storage);
+		*storage = NULL;
+		return ;
+	}
+	tmp = malloc((ft_strlen(new_line_char)) * sizeof(char));
+	if (!tmp)
+		return ;
+	i = 0;
+	j = ft_strlen(*storage) - ft_strlen(new_line_char) + 1;
+	while (j < ft_strlen(*storage))
+		tmp[i++] = (*storage)[j++];//bis hierer scheint es unnoetig komplex und vereinfachbar
+	 tmp[i] = '\0';
+	free(*storage);
+	*storage = tmp;
+	if (**storage == 0) //was wird hier gecheckt?
+	{
+		free(*storage);
+		*storage = NULL;
+	}
+}	
+	
 static void	get_line(char **storage, char **line)
 {
 	char	*new_line_char;
@@ -22,7 +53,7 @@ static void	get_line(char **storage, char **line)
 	len_line = ft_strlen(*storage) - ft_strlen(new_line_char) + 2;
 	*line = (char *)malloc(len_line *sizeof(char));
 	if (!line)
-		return (0);
+		return ;
 	i = -1; //changed indexing to be more concise
 	while (i++ < len_line - 1)
 		(*line)[i] = (*storage)[i];

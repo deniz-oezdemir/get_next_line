@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2023/11/29 15:30:16 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:25:43 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ char	*get_next_line(int fd)
 		return (0);
 	ft_bzero(buffer, BUFFER_SIZE + 1);
 	bytes = 1;
-	while (strchr(storage, '\n') == NULL && bytes > 0) //testen ob bytes != 0 auch funktioniert
+	while (ft_strchr(storage, '\n') == NULL && bytes > 0) //testen ob bytes != 0 auch funktioniert
 		bytes = read_buffer(fd, &storage, buffer);
 	free(buffer);
 	if (bytes == -1)
 		return (0);	
-	if (ft_strlen(storage) = 0) //warum notwendig?
+	if (ft_strlen(storage) == 0) //warum notwendig?
 		return (0);
 	get_line(&storage, &line);
 	del_line(&storage);

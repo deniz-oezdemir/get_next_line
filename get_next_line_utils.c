@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
+/*
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
@@ -32,9 +32,25 @@ void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }
+*/
 
-char	*ft_strchr(const char *s, int c)
+//replacing my functions with this did not help debugging - BUT can we use 4 or 5 functions per file?
+void	ft_bzero(void *s, size_t n)
 {
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		*((unsigned char *)s + i) = '\0';
+		i++;
+	}
+}
+
+char	*ft_strchr(const char *s, int c) //mine is different, added NULL check and THIS FIXED MOST ERRORS! understand why!
+{
+	if (s == NULL)
+		return (NULL);
 	while (*s != (unsigned char)c)
 	{
 		if (*s == 0)
@@ -44,10 +60,29 @@ char	*ft_strchr(const char *s, int c)
 	return ((char *)s);
 }
 
+/*including this instead of mine did not help while debugging
+char	*ft_strchr(const char *s, int c)
+{
+	if (s == NULL)
+		return (NULL);
+	while (*s != '\0')
+	{
+		if (*s == c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == '\0' && c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
+*/
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
-
+	
+	if (s == NULL) //added while debugging, test removing
+		return (0);
 	i = 0;
 	while (s[i] != '\0')
 		i++;

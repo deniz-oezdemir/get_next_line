@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2023/11/30 18:44:46 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/11/30 21:53:02 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ char	*extract_excess(char *line)
 		return (excess);
 	}
 }
-	
+
+/* if buf not static, stackoverflow for high BUFFER_SIZE */
 char	*read_buffer(char *line, int fd)
 {
-	char	buf[BUFFER_SIZE + 1];
-	ssize_t	nb;
+	static char	buf[BUFFER_SIZE + 1];
+	ssize_t		nb;
 
 	while (!ft_strchr(line, '\n'))
 	{
@@ -41,14 +42,14 @@ char	*read_buffer(char *line, int fd)
 		if (nb == -1)
 		{
 			free(line);
-			return(NULL);
+			return (NULL);
 		}
 		buf[nb] = '\0';
 		line = ft_strjoin(line, buf);
 	}
 	return (line);
 }
-	
+
 char	*get_next_line(int fd)
 {
 	static char	*excess;

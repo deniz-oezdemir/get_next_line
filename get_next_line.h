@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:20:57 by denizozd          #+#    #+#             */
-/*   Updated: 2023/11/30 18:14:27 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/11/30 22:10:26 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,3 @@ char	*ft_strjoin(char *s1, char const *s2);
 # endif
 
 #endif
-
-

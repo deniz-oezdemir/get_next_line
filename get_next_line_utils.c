@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: denizozd <denizozd@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:28:25 by denizozd          #+#    #+#             */
-/*   Updated: 2023/11/30 18:28:40 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/11/30 21:57:35 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strchr(const char *s, int c)
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
-	
+
 	if (!s)
 		return (0);
 	i = 0;
@@ -50,7 +50,7 @@ char	*ft_strdup(const char *s)
 		return (NULL);
 	dst[l] = '\0';
 	while (l--)
-		dst[l] = s[l];	
+		dst[l] = s[l];
 	return (dst);
 }
 
@@ -76,7 +76,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 		dst[len1 + len2] = s2[len2];
 	while (len1--)
 		dst[len1] = s1[len1];
-	if(s1)
+	if (s1)
 		free(s1);
 	return (dst);
 }

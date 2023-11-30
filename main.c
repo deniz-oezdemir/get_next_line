@@ -2,10 +2,10 @@
 #include "stdio.h"
 #include <fcntl.h>
 
-int	main()
+int	main(void)
 {
-	int fd;
-	char *nextline;
+	int		fd;
+	char	*nextline;
 
 	fd = open("example.txt", O_RDONLY);
 	nextline = get_next_line(fd);

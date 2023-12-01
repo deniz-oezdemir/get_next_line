@@ -1,5 +1,5 @@
 # 42-get_next_line
-##Diagram of information flow in the program
+## Diagram of information flow in the program
 
 ```mermaid
 graph TD

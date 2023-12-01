@@ -1,6 +1,6 @@
 # 42-get_next_line
-
 ##Diagram of information flow in the program
+
 ```mermaid
 graph TD
   A[get_next_line] -->|Calls first| B[read_buffer]

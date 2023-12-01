@@ -9,7 +9,7 @@ graph TD
   D -->|Returns excess| A
 
   subgraph Do until first newline character is found
-    B -->|Reads from file descriptor| G[Join  lines]
+    B -->|Reads from file descriptor| G[loop joining lines]
     G -->|Return updated line| B
   end
 

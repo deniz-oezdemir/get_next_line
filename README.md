@@ -8,7 +8,7 @@ graph TD
 
   subgraph Do until first newline character is found
     B -->|Reads from file descriptor| G[Join  lines]
-    G -->|Returns complete line| B
+    G -->|Return updated line| B
   end
 
   subgraph Save excess read with read_buffer but not returned in line and truncate line

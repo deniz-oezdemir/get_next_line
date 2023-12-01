@@ -1,5 +1,5 @@
 # 42-get_next_line
-
+```mermaid
 graph TD
   A[get_next_line] -->|Calls first| B[read_buffer]
   B -->|Returns line| A[get_next_line]
@@ -14,3 +14,4 @@ graph TD
   subgraph Save excess read with read_buffer but not returned in line and truncate line
     D
   end
+```

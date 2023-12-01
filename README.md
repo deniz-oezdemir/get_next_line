@@ -4,16 +4,16 @@
 ```mermaid
 graph TD
   A[get_next_line] -->|Calls first| B[read_buffer]
+  A -->|Calls second| C[extract_excess]
   B -->|Returns line| A[get_next_line]
-  A -->|Calls second| D[extract_excess]
-  D -->|Returns excess| A
+  C -->|Returns excess| A
 
   subgraph Do until first newline character is found
-    B -->|Reads from file descriptor| G[loop joining lines]
-    G -->|Return updated line| B
+    B -->|Reads from file descriptor| D[loop joining lines]
+    D -->|Return updated line| B
   end
 
   subgraph Save excess read with read_buffer but not returned in line and truncate line
-    D
+    C
   end
 ```

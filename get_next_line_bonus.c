@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2023/12/01 15:56:15 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:24:55 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /*The extract_excess function takes a line pointer as input,
 	searches for a newline character, and, if found,
@@ -39,8 +39,8 @@ char	*extract_excess(char *line)
 	there may be a stack overflow for a high BUFFER_SIZE.*/
 char	*read_buffer(char *line, int fd)
 {
-	static char	buf[BUFFER_SIZE + 1];
-	ssize_t		nb;
+	char	buf[BUFFER_SIZE + 1];
+	ssize_t	nb;
 
 	while (!ft_strchr(line, '\n'))
 	{
@@ -63,12 +63,15 @@ char	*read_buffer(char *line, int fd)
 	and then uses the extract_excess function to handle any excess
 	characters beyond the newline,
 	returning the line read or NULL in case of errors.*/
+/*Bonus: Reads from up to MAX file descriptors.*/
 char	*get_next_line(int fd)
 {
-	static char	*excess;
+	static char	*excess[MAX];
 	char		*line;
 
-	line = read_buffer(excess, fd);
-	excess = extract_excess(line);
+	if (fd < 0 || fd > MAX)
+		return (NULL);
+	line = read_buffer(excess[fd], fd);
+	excess[fd] = extract_excess(line);
 	return (line);
 }

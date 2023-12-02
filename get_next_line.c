@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2023/12/01 15:56:15 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/12/02 16:10:29 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*The extract_excess function takes a line pointer as input,
 	searches for a newline character, and, if found,
 	duplicates the excess characters beyond the newline,
-	truncates the original line at the newline,
+	truncates the original line one after its newline character,
 	and returns the duplicated excess or NULL if no newline is present.*/
 char	*extract_excess(char *line)
 {
@@ -59,9 +59,9 @@ char	*read_buffer(char *line, int fd)
 }
 
 /*The get_next_line function reads a line from a file descriptor,
-	utilizing the read_buffer function to dynamically grow the line,
-	and then uses the extract_excess function to handle any excess
-	characters beyond the newline,
+	utilizing the read_buffer function to get the line,
+	and then uses the extract_excess function to handle any extra
+	characters read beyond the newline character,
 	returning the line read or NULL in case of errors.*/
 char	*get_next_line(int fd)
 {

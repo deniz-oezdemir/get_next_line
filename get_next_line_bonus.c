@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:27:50 by denizozd          #+#    #+#             */
-/*   Updated: 2023/12/02 16:23:59 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/12/02 16:38:51 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ char	*read_buffer(char *line, int fd)
 /*Bonus: Reads from up to MAX file descriptors.*/
 char	*get_next_line(int fd)
 {
-	static char	*excess[MAX];
+	static char	*excess[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || fd > MAX)
+	if (fd < 0 || fd > OPEN_MAX)
 		return (NULL);
 	line = read_buffer(excess[fd], fd);
 	excess[fd] = extract_excess(line);

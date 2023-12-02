@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:20:57 by denizozd          #+#    #+#             */
-/*   Updated: 2023/11/30 22:10:26 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/12/02 16:48:06 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
+# include <fcntl.h>
 
 char	*get_next_line(int fd);
 char	*read_buffer(char *line, int fd);

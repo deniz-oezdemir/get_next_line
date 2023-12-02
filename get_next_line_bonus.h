@@ -6,7 +6,7 @@
 /*   By: denizozd <denizozd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:20:57 by denizozd          #+#    #+#             */
-/*   Updated: 2023/12/02 16:24:15 by denizozd         ###   ########.fr       */
+/*   Updated: 2023/12/02 16:48:01 by denizozd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
+# include <fcntl.h>
+# include <limits.h>
 
 char	*get_next_line(int fd);
 char	*read_buffer(char *line, int fd);
@@ -29,7 +32,7 @@ char	*ft_strjoin(char *s1, char const *s2);
 #  define BUFFER_SIZE 10
 # endif
 
-# ifndef MAX
-#  define MAX 1024
+# ifndef OPEN_MAX
+#  define OPEN_MAX 512
 # endif
 #endif

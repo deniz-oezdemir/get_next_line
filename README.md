@@ -1,5 +1,5 @@
 # get_next_line
-Recreating the `getline` function in C to read and return lines from a file descriptor
+Recreating the `getline` function in C to read and return lines from a file descriptor.
 
 ## Diagram of information flow
 
@@ -19,3 +19,6 @@ graph TD
     C
   end
 ```
+
+## Requirements
+Please refer to the [subject](./en.subject.pdf) for detailed requirements.

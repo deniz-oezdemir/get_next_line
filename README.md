@@ -1,5 +1,7 @@
-# 42-get_next_line
-## Diagram of information flow in the program
+# get_next_line
+Recreating the `getline` function in C to read and return lines from a file descriptor
+
+## Diagram of information flow
 
 ```mermaid
 graph TD
